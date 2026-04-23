@@ -6,7 +6,6 @@ import makeWASocket, {
   fetchLatestBaileysVersion,
   useMultiFileAuthState
 } from "@whiskeysockets/baileys";
-import { Boom } from "@hapi/boom";
 import pino from "pino";
 import qrcode from "qrcode-terminal";
 
@@ -76,8 +75,7 @@ const connectWhatsApp = async () => {
       return;
     }
 
-    const boom = lastDisconnect?.error instanceof Boom ? lastDisconnect.error : null;
-    const statusCode = boom?.output?.statusCode;
+    const statusCode = lastDisconnect?.error?.output?.statusCode;
     const shouldReconnect = statusCode !== DisconnectReason.loggedOut;
 
     logger.warn({ statusCode }, "whatsapp disconnected");
