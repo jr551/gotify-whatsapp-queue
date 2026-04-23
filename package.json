@@ -1,0 +1,21 @@
+{
+  "name": "gotify-whatsapp-queue",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Baileys WhatsApp connector that logs conversations to Gotify and consumes outbound send requests from a Gotify-backed queue.",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^7.0.0-rc.6",
+    "dotenv": "^16.4.5",
+    "pino": "^9.3.2",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
